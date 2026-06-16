@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "taproot-toolkit"
+version = "0.1.0"
+description = "Taproot ToolKit - Network utilities and tools for packet capture, analysis, and network interface management"
+readme = "README.md"
+requires-python = ">=3.14.4"
+dependencies = [
+    "click>=8.1.0",
+    "netifaces2>=0.0.22",
+    "psutil>=7.1.0",
+    "pytest>=8.4.2",
+    "scapy>=2.6.1",
+    # Media processing dependencies
+    "numpy>=1.24.0",
+    "soundfile>=0.12.0",
+    "ffmpeg-python>=0.2.0",
+    "pillow>=10.0.0",
+    "dpkt>=1.9.8",
+]
+
+[project.optional-dependencies]
+streaming = [
+    "PyGObject>=3.42.0",
+]
+
+[project.scripts]
+taproot = "taproot.cli:cli"
+
+[tool.setuptools.packages.find]
+include = ["taproot*"]
+exclude = ["Resources*", "tests*"]
+
+[tool.pytest.ini_options]
+log_cli = true
+log_level = "DEBUG"
+log_format = "%(asctime)s [%(levelname)s] %(message)s"
+log_date_format = "%Y-%m-%d %H:%M:%S"

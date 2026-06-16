@@ -1,0 +1,25 @@
+# IDE-specific files
+.idea/
+.vscode/
+.DS_Store
+
+# Backup and temporary files
+.save
+
+# Python bytecode files
+*.pyc
+__pycache__/
+
+# Python build artifacts
+*.egg-info/
+dist/
+build/
+
+# Environment
+.venv/
+.python-version
+
+
+# Test Files
+.pytest_cache/
+*.wav
