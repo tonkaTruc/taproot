@@ -1,14 +1,12 @@
 """Tests for pcap replay functionality."""
 
-import pytest
 from pathlib import Path
 
-from taproot.network.packet.replay import (
-    get_cap_store_path,
-    list_pcaps,
-    get_pcap_path,
-    get_pcap_info
-)
+import pytest
+
+from taproot.network.packet.replay import (get_cap_store_path, get_pcap_info,
+                                           get_pcap_path, list_pcaps)
+from tests import log
 
 
 def test_get_cap_store_path():
@@ -27,6 +25,7 @@ def test_list_pcaps():
 
     # Check structure of returned data
     for pcap in pcaps:
+        log.info(pcap)
         assert 'name' in pcap
         assert 'path' in pcap
         assert 'size' in pcap

@@ -70,17 +70,16 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
 WORKDIR /opt/taproot
 COPY pyproject.toml uv.lock README.md ./
 COPY taproot/ ./taproot/
-# Create cache directories
-RUN mkdir -p .cache/cap_store
 
 # FIXME: Streaming deps fail to install
 # Install Python dependencies using uv
+# Add uv's virtual environment to PATH
 RUN uv sync 
 # --extra streaming
+ENV PATH="/opt/taproot/.venv/bin:${PATH}"
+COPY .cache/ ./.cache/ 
 
-# Add uv's virtual environment to PATH
 # Verify CLI entry point is available
 # Set default command to show help
-ENV PATH="/opt/taproot/.venv/bin:${PATH}"
 RUN which taproot && taproot --help
 CMD ["taproot", "--help"]
