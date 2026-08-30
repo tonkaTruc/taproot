@@ -3,8 +3,10 @@
 .vscode/
 .DS_Store
 
-# Backup and temporary files
+# cache and temporary files
 .save
+*.pcap
+!.ref_*
 
 # Python bytecode files
 *.pyc
