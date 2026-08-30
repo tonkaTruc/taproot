@@ -180,7 +180,7 @@ def test_with_pcap():
     print("="*80)
 
     project_root = Path(__file__).parent.parent.parent
-    pcap_path = project_root / "Resources/cap_store/ST2110-30_SxTAG_1.pcapng"
+    pcap_path = project_root / ".cache/cap_store/ST2110-30_SxTAG_1.pcapng"
 
     if not pcap_path.exists():
         print(f"⚠ Skipping: PCAP file not found at {pcap_path}")

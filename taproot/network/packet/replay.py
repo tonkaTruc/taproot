@@ -6,9 +6,9 @@ from the resources/cap_store directory on network interfaces.
 
 import os
 from pathlib import Path
-from typing import List, Dict, Optional
+from typing import Dict, List, Optional
 
-from scapy.all import rdpcap, sendp, send
+from scapy.all import rdpcap, send, sendp
 
 
 def get_cap_store_path() -> Path:
@@ -19,7 +19,7 @@ def get_cap_store_path() -> Path:
     """
     # Get the project root (assuming this file is in ttk/network/packet/)
     project_root = Path(__file__).parent.parent.parent.parent
-    cap_store = project_root / "Resources" / "cap_store"
+    cap_store = project_root / ".cache" / "cap_store"
 
     if not cap_store.exists():
         raise FileNotFoundError(f"Cap store directory not found: {cap_store}")

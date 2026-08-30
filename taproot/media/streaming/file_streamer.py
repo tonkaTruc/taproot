@@ -8,18 +8,18 @@ This module implements best practices for GStreamer with Python, including:
 - PCap capture capability
 """
 
+import logging
 import os
 import sys
-import logging
 from dataclasses import dataclass
-from typing import Optional, Literal
 from pathlib import Path
+from typing import Literal, Optional
 
 try:
     import gi
     gi.require_version('Gst', '1.0')
     gi.require_version('GstRtp', '1.0')
-    from gi.repository import Gst, GLib, GstRtp
+    from gi.repository import GLib, Gst, GstRtp
 
     # Initialize GStreamer
     Gst.init(None)

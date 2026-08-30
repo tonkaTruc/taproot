@@ -2,11 +2,11 @@ import os
 from pathlib import Path
 
 import pytest
-from scapy.layers.l2 import Ether
 from scapy.all import rdpcap
+from scapy.layers.l2 import Ether
 
-from tests import log
 from taproot.network.packet.capture import PackerCaptor
+from tests import log
 
 
 @pytest.fixture
@@ -17,7 +17,7 @@ def packet_captor() -> PackerCaptor:
 @pytest.fixture
 def temp_cap_store(tmp_path):
     """Create a temporary cap_store directory for testing."""
-    cap_store = tmp_path / "Resources" / "cap_store"
+    cap_store = tmp_path / ".cache" / "cap_store"
     cap_store.mkdir(parents=True)
     return cap_store
 
@@ -51,7 +51,7 @@ def test_packet_captor_save_capture(packet_captor):
 
     # Verify file was created in cap_store
     project_root = Path(__file__).parent.parent.parent.parent
-    cap_store = project_root / "Resources" / "cap_store"
+    cap_store = project_root / ".cache" / "cap_store"
     saved_file = cap_store / filename
 
     assert saved_file.exists(), f"File {saved_file} was not created"

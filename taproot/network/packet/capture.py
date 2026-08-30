@@ -56,9 +56,9 @@ class PackerCaptor:
         Raises:
             FileNotFoundError: If cap_store directory doesn't exist
         """
-        # Get the cap_store path (Resources/cap_store)
+        # Get the cap_store path (.cache/cap_store)
         project_root = Path(__file__).parent.parent.parent.parent
-        cap_store = project_root / "Resources" / "cap_store"
+        cap_store = project_root / ".cache" / "cap_store"
 
         # Create cap_store directory if it doesn't exist
         cap_store.mkdir(parents=True, exist_ok=True)

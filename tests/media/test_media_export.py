@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Test script for media export functionality."""
 
-import sys
 import os
-from pathlib import Path
-
+import sys
 # Suppress all warnings and stderr temporarily for Scapy import
 import warnings
+from pathlib import Path
+
 warnings.filterwarnings('ignore')
 os.environ['SCAPY_NO_WARNINGS'] = '1'
 
@@ -25,7 +25,7 @@ except Exception as e:
 
 def test_list_streams():
     """Test listing RTP streams from a pcap file."""
-    pcap_path = "/home/user/toolkit/Resources/cap_store/ST2110-30_SxTAG_1.pcapng"
+    pcap_path = "/home/user/toolkit/.cache/cap_store/ST2110-30_SxTAG_1.pcapng"
 
     print(f"\nTesting RTP stream extraction from: {pcap_path}")
     print("=" * 70)

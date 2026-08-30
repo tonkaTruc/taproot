@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Test RTP extraction from ST 2110 pcap files using dpkt."""
 
-import sys
 import struct
+import sys
 from pathlib import Path
+
 import dpkt
 
 
@@ -189,10 +190,10 @@ def main():
     project_root = Path(__file__).parent.parent.parent
 
     test_files = [
-        project_root / "Resources/cap_store/ST2110-30_SxTAG_1.pcapng",
-        project_root / "Resources/cap_store/ST2110-30_SxTAG_2.pcapng",
-        project_root / "Resources/cap_store/ST2110-31_2ch_PCM_1kHz_20dBFS.pcap",
-        project_root / "Resources/cap_store/ST2110-31_DolbyD_20_192kbps_1kHz.pcap",
+        project_root / ".cache/cap_store/ST2110-30_SxTAG_1.pcapng",
+        project_root / ".cache/cap_store/ST2110-30_SxTAG_2.pcapng",
+        project_root / ".cache/cap_store/ST2110-31_2ch_PCM_1kHz_20dBFS.pcap",
+        project_root / ".cache/cap_store/ST2110-31_DolbyD_20_192kbps_1kHz.pcap",
     ]
 
     print("="*80)
